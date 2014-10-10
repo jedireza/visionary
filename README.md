@@ -10,15 +10,15 @@ don't need this plugin and can just call `server.views()` directly from your cod
 
 ```json
 {
-    servers: [
+    "servers": [
         {
-            port: 8080
+            "port": 8080
         }
     ],
-    plugins: {
-        'visionary': {
-            engines: { 'html': 'handlebars' },
-            path: '/where/my/template/file/are/located'
+    "plugins": {
+        "visionary": {
+            "engines": { "html": "handlebars" },
+            "path": "/where/my/template/file/are/located"
         }
     }
 }
