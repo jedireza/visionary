@@ -1,5 +1,6 @@
 // Load modules
 
+var Code = require('code');
 var Hapi = require('hapi');
 var Lab = require('lab');
 var Visionary = require('../');
@@ -14,7 +15,7 @@ var internals = {};
 var lab = exports.lab = Lab.script();
 var describe = lab.describe;
 var it = lab.it;
-var expect = Lab.expect;
+var expect = Code.expect;
 
 
 describe('register()', function () {
@@ -27,9 +28,10 @@ describe('register()', function () {
         };
 
         var server = new Hapi.Server();
-        server.pack.register({ plugin: Visionary, options: views }, function (err) {
+        server.connection();
+        server.register({ register: Visionary, options: views }, function (err) {
 
-            expect(err).to.not.exist;
+            expect(err).to.not.exist();
 
             var handler = function (request, reply) {
 
@@ -54,9 +56,10 @@ describe('register()', function () {
         };
 
         var server = new Hapi.Server();
-        server.pack.register({ plugin: Visionary, options: views }, function (err) {
+        server.connection();
+        server.register({ register: Visionary, options: views }, function (err) {
 
-            expect(err).to.not.exist;
+            expect(err).to.not.exist();
 
             var handler = function (request, reply) {
 

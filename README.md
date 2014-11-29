@@ -10,7 +10,7 @@ don't need this plugin and can just call `server.views()` directly from your cod
 
 ```json
 {
-    "servers": [
+    "connections": [
         {
             "port": 8080
         }
