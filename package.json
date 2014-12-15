@@ -1,7 +1,7 @@
 {
   "name": "visionary",
   "description": "Views loader plugin for hapi.js",
-  "version": "2.0.0-rc2",
+  "version": "2.0.0",
   "repository": "git://github.com/hapijs/visionary",
   "main": "index",
   "keywords": [
