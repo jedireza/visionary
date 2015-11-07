@@ -1,29 +1,23 @@
-// Load modules
+'use strict';
 
-var Code = require('code');
-var Hapi = require('hapi');
-var Lab = require('lab');
-var Vision = require('vision');
-var Visionary = require('../');
-
-// Declare internals
-
-var internals = {};
+const Code = require('code');
+const Hapi = require('hapi');
+const Lab = require('lab');
+const Vision = require('vision');
+const Visionary = require('../');
 
 
-// Test shortcuts
-
-var lab = exports.lab = Lab.script();
-var describe = lab.describe;
-var it = lab.it;
-var expect = Code.expect;
+const lab = exports.lab = Lab.script();
+const describe = lab.describe;
+const it = lab.it;
+const expect = Code.expect;
 
 
-describe('register()', function () {
+describe('register()', () => {
 
-    it('registers a views manager', function (done) {
+    it('registers a views manager', (done) => {
 
-        var VisionaryPlugin = {
+        const VisionaryPlugin = {
             register: Visionary,
             options: {
                 engines: { 'html': require('handlebars') },
@@ -31,22 +25,19 @@ describe('register()', function () {
             }
         };
 
-        var server = new Hapi.Server();
+        const server = new Hapi.Server();
         server.connection();
-        server.register([Vision, VisionaryPlugin], function (err) {
+        server.register([Vision, VisionaryPlugin], (err) => {
 
             expect(err).to.not.exist();
 
-            var handler = function (request, reply) {
-
-                return reply.view('test', { message: 'hi' });
-            };
+            const handler = (request, reply) => reply.view('test', { message: 'hi' });
 
             server.route({ method: 'GET', path: '/', handler: handler });
 
-            server.initialize(function () {
+            server.initialize(() => {
 
-                server.inject('/', function (res) {
+                server.inject('/', (res) => {
 
                     expect(res.result).to.equal('<div>\n    <h1>hi</h1>\n</div>\n');
                     done();
@@ -55,9 +46,10 @@ describe('register()', function () {
         });
     });
 
-    it('registers a views manager (string engine)', function (done) {
 
-        var VisionaryPlugin = {
+    it('registers a views manager (string engine)', (done) => {
+
+        const VisionaryPlugin = {
             register: Visionary,
             options: {
                 engines: { 'html': 'handlebars' },
@@ -65,22 +57,19 @@ describe('register()', function () {
             }
         };
 
-        var server = new Hapi.Server();
+        const server = new Hapi.Server();
         server.connection();
-        server.register([Vision, VisionaryPlugin], function (err) {
+        server.register([Vision, VisionaryPlugin], (err) => {
 
             expect(err).to.not.exist();
 
-            var handler = function (request, reply) {
-
-                return reply.view('test', { message: 'hi' });
-            };
+            const handler = (request, reply) => reply.view('test', { message: 'hi' });
 
             server.route({ method: 'GET', path: '/', handler: handler });
 
-            server.initialize(function () {
+            server.initialize(() => {
 
-                server.inject('/', function (res) {
+                server.inject('/', (res) => {
 
                     expect(res.result).to.equal('<div>\n    <h1>hi</h1>\n</div>\n');
                     done();
