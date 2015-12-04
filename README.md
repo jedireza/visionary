@@ -8,7 +8,7 @@ Views loader plugin for hapi.js.
 [![Dev Dependency Status](https://david-dm.org/hapijs/visionary/dev-status.svg?style=flat)](https://david-dm.org/hapijs/visionary#info=devDependencies)
 
 Used to configure a views engine when using
-[rejoice](https://github.com/hapijs/glue) (the hapi CLI) or
+[rejoice](https://github.com/hapijs/rejoice) (the hapi CLI) or
 [glue](https://github.com/hapijs/glue). This plugin allows configuring the
 views manager from a manifest which is a plain JSON file and cannot contain
 calls to `server.views()` or require the rendering engine.
