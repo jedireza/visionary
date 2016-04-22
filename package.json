@@ -27,7 +27,8 @@
     "vision": "4.x.x"
   },
   "scripts": {
-    "test": "make test-cov"
+    "test": "lab -c -L",
+    "test-cov-html": "lab -c -r html -o ./coverage.html"
   },
   "licenses": [
     {
