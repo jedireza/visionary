@@ -23,13 +23,20 @@ probably don't need this plugin. See [`vision`](https://github.com/hapijs/vision
             "port": 8080
         }
     ],
-    "plugins": {
-        "vision": {},
-        "visionary": {
-            "engines": { "html": "handlebars" },
-            "path": "/where/my/template/file/are/located"
+    "registrations": [
+        {
+            "plugin": "vision"
+        },
+        {
+            "plugin": {
+                "register": "visionary",
+                "options": {
+                    "engines": { "html": "handlebars" },
+                    "path": "/where/my/template/file/are/located"
+                }
+            }
         }
-    }
+    ]
 }
 ```
 
